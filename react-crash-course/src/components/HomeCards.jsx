@@ -8,12 +8,16 @@ const HomeCards = () => {
 					<Card
 						cardtitle='For Developers'
 						description='Browse our React jobs and start your career today'
+						btn_description='Browse Jobs'
+						btn_link='/jobs'
 					/>
 					<Card
 						bgcolor='bg-indigo-100'
 						cardtitle='For Employers'
 						description='List your job to find the perfect developer for the role'
 						btncolor='bg-indigo-500 hover:bg-indigo-600'
+						btn_description='Add Job'
+						btn_link='/add-job'
 					/>
 				</div>
 			</div>
