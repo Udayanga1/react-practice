@@ -62,7 +62,7 @@ const HostVanDetail = () => {
 					</NavLink>
 				</nav>
 
-				<Outlet />
+				<Outlet context={[currentVan, setCurrentVan]} />
 			</div>
 		</section>
 	)
