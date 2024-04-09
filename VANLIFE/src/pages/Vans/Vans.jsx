@@ -1,9 +1,13 @@
-import { Link } from "react-router-dom"
+import { Link, useSearchParams } from "react-router-dom"
 
 import { useEffect, useState } from "react"
 
 const Vans = () => {
+	const [searchParams, setSearchParams] = useSearchParams()
+
 	const [vans, setVans] = useState([])
+
+	const typeFilter = searchParams.get("type")
 
 	// fetch vans from API
 	useEffect(() => {
@@ -12,11 +16,29 @@ const Vans = () => {
 			.then((data) => setVans(data.vans))
 	}, [])
 
+	const displayedVans = typeFilter
+		? vans.filter((van) => van.type === typeFilter)
+		: vans
+
 	return (
 		<div className='van-list-container'>
 			<h1>Explore our van options</h1>
+			<div className='van-list-filter-buttons'>
+				<Link className='van-type clear-filters' to='.'>
+					all
+				</Link>
+				<Link className='van-type simple' to='?type=simple'>
+					simple
+				</Link>
+				<Link className='van-type rugged' to='?type=rugged'>
+					rugged
+				</Link>
+				<Link className='van-type luxury' to='?type=luxury'>
+					luxury
+				</Link>
+			</div>
 			<div className='van-list'>
-				{vans.map((van) => (
+				{displayedVans.map((van) => (
 					<div key={van.id} className='van-tile'>
 						<Link
 							to={`/vans/${van.id}`}
