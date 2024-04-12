@@ -24,18 +24,30 @@ const Vans = () => {
 		<div className='van-list-container'>
 			<h1>Explore our van options</h1>
 			<div className='van-list-filter-buttons'>
-				<Link className='van-type clear-filters' to='.'>
-					all
-				</Link>
-				<Link className='van-type simple' to='?type=simple'>
+				<button
+					className='van-type simple'
+					onClick={() => setSearchParams({ type: "simple" })}
+				>
 					simple
-				</Link>
-				<Link className='van-type rugged' to='?type=rugged'>
+				</button>
+				<button
+					className='van-type rugged'
+					onClick={() => setSearchParams({ type: "rugged" })}
+				>
 					rugged
-				</Link>
-				<Link className='van-type luxury' to='?type=luxury'>
+				</button>
+				<button
+					className='van-type luxury'
+					onClick={() => setSearchParams({ type: "luxury" })}
+				>
 					luxury
-				</Link>
+				</button>
+				<button
+					className='van-type clear-filters'
+					onClick={() => setSearchParams({})}
+				>
+					clear
+				</button>
 			</div>
 			<div className='van-list'>
 				{displayedVans.map((van) => (
