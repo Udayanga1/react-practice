@@ -25,35 +25,43 @@ const Vans = () => {
 			<h1>Explore our van options</h1>
 			<div className='van-list-filter-buttons'>
 				<button
-					className='van-type simple'
+					className={`van-type simple ${
+						typeFilter === "simple" ? "selected" : ""
+					}`}
 					onClick={() => setSearchParams({ type: "simple" })}
 				>
 					simple
 				</button>
 				<button
-					className='van-type rugged'
+					className={`van-type rugged ${
+						typeFilter === "rugged" ? "selected" : ""
+					}`}
 					onClick={() => setSearchParams({ type: "rugged" })}
 				>
 					rugged
 				</button>
 				<button
-					className='van-type luxury'
+					className={`van-type luxury ${
+						typeFilter === "luxury" ? "selected" : ""
+					}`}
 					onClick={() => setSearchParams({ type: "luxury" })}
 				>
 					luxury
 				</button>
-				<button
-					className='van-type clear-filters'
-					onClick={() => setSearchParams({})}
-				>
-					clear
-				</button>
+				{typeFilter && (
+					<button
+						className='van-type clear-filters'
+						onClick={() => setSearchParams({})}
+					>
+						Clear filter
+					</button>
+				)}
 			</div>
 			<div className='van-list'>
 				{displayedVans.map((van) => (
 					<div key={van.id} className='van-tile'>
 						<Link
-							to={`/vans/${van.id}`}
+							to={van.id}
 							aria-label={`View details for ${van.name}, priced at $${van.price} per day`}
 						>
 							<img src={van.imageUrl} alt={`View details for ${van.name}`} />
