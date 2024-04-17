@@ -1,5 +1,5 @@
 const { response } = require("./app")
-const User = require("/model")
+const User = require("./model")
 
 const getUsers = (req, res, next) => {
 	User.find()
@@ -40,7 +40,7 @@ const updateUser = (req, res, next) => {
 
 const deleteUser = (req, res, next) => {
 	const { id } = req.body // this equals to 'const id = req.body.id'
-	User.deleteOne({ id: id }, { $set: { name: name } })
+	User.deleteOne({ id: id })
 		.then((response) => {
 			res.json({ response })
 		})

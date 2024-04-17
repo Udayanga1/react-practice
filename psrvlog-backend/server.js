@@ -4,6 +4,7 @@ const cors = require("cors")
 const port = 5001
 const host = "localhost"
 const mongoose = require("mongoose")
+const router = require("./router")
 
 app.use(cors())
 app.use(express.json())
@@ -25,3 +26,5 @@ connect()
 const server = app.listen(port, host, () => {
 	console.log("Server running on port 5001")
 })
+
+app.use("/api", router)
