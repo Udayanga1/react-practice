@@ -1,4 +1,4 @@
-const UsersTable = ({ rows }) => {
+const UsersTable = ({ rows, selectedUser, deleteUser }) => {
 	return (
 		<>
 			{rows.length > 0 ? (
@@ -16,8 +16,14 @@ const UsersTable = ({ rows }) => {
 								<td>{row.id}</td>
 								<td>{row.name}</td>
 								<td className='flex gap-3 text-cyan-600 uppercase'>
-									<button onClick={() => {}}>Update</button>
-									<button onClick={() => {}}>Delete</button>
+									<button
+										onClick={() => selectedUser({ id: row.id, name: row.name })}
+									>
+										Update
+									</button>
+									<button onClick={() => deleteUser({ id: row.id })}>
+										Delete
+									</button>
 								</td>
 							</tr>
 						))}
