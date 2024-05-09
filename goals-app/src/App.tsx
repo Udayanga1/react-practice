@@ -3,8 +3,9 @@ import { useState } from "react"
 import CourseGoal from "./components/CourseGoal"
 import Header from "./components/Header"
 import goalsImage from "./assets/goals.jpg"
+import CourseGoalList from "./components/CourseGoalList"
 
-type CourseGoal = {
+export type CourseGoal = {
 	title: string
 	description: string
 	id: number
@@ -30,7 +31,8 @@ export default function App() {
 				<h1>Your Course Goals</h1>
 			</Header>
 			<button onClick={handleAddGoal}>Add Goal</button>
-			<ul>
+			<CourseGoalList goals={goals} />
+			{/* <ul>
 				{goals.map((goal) => (
 					<li key={goal.id}>
 						<CourseGoal title={goal.title}>
@@ -38,7 +40,7 @@ export default function App() {
 						</CourseGoal>
 					</li>
 				))}
-			</ul>
+			</ul> */}
 		</main>
 	)
 }
