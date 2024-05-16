@@ -4,6 +4,7 @@ import CourseGoal from "./components/CourseGoal"
 import Header from "./components/Header"
 import goalsImage from "./assets/goals.jpg"
 import CourseGoalList from "./components/CourseGoalList"
+import NewGoal from "./components/NewGoal"
 
 export type CourseGoal = {
 	title: string
@@ -34,17 +35,8 @@ export default function App() {
 			<Header image={{ src: goalsImage, alt: "A list of goals" }}>
 				<h1>Your Course Goals</h1>
 			</Header>
-			<button onClick={handleAddGoal}>Add Goal</button>
+			<NewGoal />
 			<CourseGoalList goals={goals} onDeleteGoal={handleDeleteGoal} />
-			{/* <ul>
-				{goals.map((goal) => (
-					<li key={goal.id}>
-						<CourseGoal title={goal.title}>
-							<p>{goal.description}</p>
-						</CourseGoal>
-					</li>
-				))}
-			</ul> */}
 		</main>
 	)
 }
