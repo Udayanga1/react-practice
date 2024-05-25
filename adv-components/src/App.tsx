@@ -1,9 +1,11 @@
+import Input from "./components/Input"
 
 function App() {
   return (
-    <>
-      <h1>Hello From App.tx</h1>
-    </>
+    <main>
+      <Input id="name" label="Your name" />
+      <Input id="age" label="Your age" />
+    </main>
   )
 }
 
