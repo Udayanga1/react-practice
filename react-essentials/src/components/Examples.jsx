@@ -13,7 +13,7 @@ export default function Examples() {
     return (
         <Section title={Examples} id="examples">
           <Tabs
-            ButtonsContainer="menu" // menu is a built in element therefore {} not required
+            // ButtonsContainer="menu" // menu is a built in element therefore {} not required
             buttons={
             <>
               <TabButton isSelected={selectedTopic === 'components' } onSelect={() => handleSelect('components')}>Components</TabButton>
