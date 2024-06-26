@@ -1,8 +1,7 @@
-export default function Tabs({ children, buttons }) {
+export default function Tabs({ children, buttons, ButtonsContainer }) {
+  // const ButtonsContainer = buttonsContainer // Prop should remap to an uppercase variable or it Should start with Uppercase
   return <>
-    <menu>
-      {buttons}
-    </menu>
+    <ButtonsContainer>{buttons}</ButtonsContainer>
     {children}
   </>
 }
